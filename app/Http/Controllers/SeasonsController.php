@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class SeasonsController extends Controller
 {
-    public function index(int $series)
+    public function index(Series $series)
     {
-        $seasons = Season::query()
-            ->with('episodes')
-            ->where('series_id', $series)
-            ->get();
+        $seasons = $series->seasons()->with('episodes')->get();
 
         return view('seasons.index')->with('seasons', $seasons);
     }

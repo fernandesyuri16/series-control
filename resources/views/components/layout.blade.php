@@ -10,6 +10,13 @@
         <h1 class="text-3x1 font-bold underline">
             {{ $title }}
         </h1>
+
+        @isset($mensagemSucesso)
+            <div class="alert alert-success">
+                {{ $mensagemSucesso }}
+            </div>
+        @endisset($mensagemSucesso)
+
         @if ($errors -> any())
             <div class="alert alert-danger">
                 <ul>

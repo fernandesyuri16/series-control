@@ -6,6 +6,19 @@
         <title> {{ $title }} - Controle de Séries </title>
         @vite('resources/css/app.scss')
     </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('series.index') }}">Home</a>
+
+            @auth
+                <a href="{{ route('logout') }}" class="navbar-brand">Logout</a>
+            @endauth
+
+            @guest
+                <a href="{{ route('login') }}" class="navbar-brand">Login</a>
+            @endguest
+        </div>
+    </nav>
     <body class="container">
         <h1 class="text-3x1 font-bold underline">
             {{ $title }}
